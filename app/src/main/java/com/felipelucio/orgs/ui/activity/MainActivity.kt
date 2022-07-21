@@ -3,8 +3,12 @@ package com.felipelucio.orgs.ui.activity
 import android.app.Activity
 import android.os.Bundle
 import android.widget.TextView
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.felipelucio.orgs.R
+import com.felipelucio.orgs.model.Produto
 import com.felipelucio.orgs.ui.recyclerview.adapter.ListaProdutosAdapter
+import java.math.BigDecimal
 
 class MainActivity : Activity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -12,15 +16,25 @@ class MainActivity : Activity() {
 
         setContentView(R.layout.activity_main)
 
-//        val produto = findViewById<TextView>(R.id.produto)
-//        val descricao = findViewById<TextView>(R.id.descricao)
-//        val valor = findViewById<TextView>(R.id.valor)
-//
-//        produto.text = "Cesta de frutas"
-//        descricao.text = "Laranja, banana e uva"
-//        valor.text = "19,90"
-
         val listaProdutos = findViewById<RecyclerView>(R.id.lista_produtos)
-        listaProdutos.adapter = ListaProdutosAdapter()
+        listaProdutos.adapter = ListaProdutosAdapter(this,
+            listOf(
+                Produto(
+                    nome = "teste",
+                    descricao = "descricao",
+                    valor = BigDecimal("19.90")
+                ),
+                Produto(
+                    nome = "teste",
+                    descricao = "descricao",
+                    valor = BigDecimal("19.90")
+                ),
+                Produto(
+                    nome = "teste",
+                    descricao = "descricao",
+                    valor = BigDecimal("19.90")
+                ),
+            )
+        )
     }
 }
